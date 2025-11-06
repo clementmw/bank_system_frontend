@@ -12,6 +12,10 @@ import TransactionForm from './components/TransactionForm';
 import Account from './components/Account';
 // import Frequent from './pages/Frequent';
 import PageNotFound from './Reusable/PageNotFound';
+import FAQSection from './components/Home/FAQSection';
+import NewNav from './pages/NewNav';
+import Footer from './pages/Footer';
+import UserLayout from './components/UserDashboard/UserLayout';
 
 
 
@@ -21,7 +25,8 @@ function App() {
 
   return (
     <div className="App">
-       
+       <>
+       <NewNav/>
       <Routes>
       <Route path="/" element={<Home />} /> 
         <Route path = '/register' element={<Register/>}/>
@@ -33,11 +38,16 @@ function App() {
         <Route path='/transaction' element = {<Transaction/>}/>
         <Route path = '/transfer' element = {<TransactionForm/>}/>
         <Route path = '/newaccount' element = {<Account/>}/>
-        {/* <Route path='/FrequentQA' element = {<Frequent/>}/> */}
-
+        <Route path='/FrequentQA' element = {<FAQSection/>}/>
+        
+        {/* authenticated routes */}
+        <Route path='/user/*' element={<UserLayout/>}/>
+        
         <Route path = '*' element = {<PageNotFound/>}/>
 
       </Routes>
+      <Footer/>
+       </>
     </div>
   );
 }

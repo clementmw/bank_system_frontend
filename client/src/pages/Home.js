@@ -1,9 +1,6 @@
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import NormalNavbar from '../components/NormalNavbar';
-import Footer from './Footer';
+
 import Section from './Section';
-import NewNav from './NewNav';
 
 function Home() {
   // const navigate = useNavigate();
@@ -13,9 +10,7 @@ function Home() {
 
   return (
     <div>
-    <NewNav/>
     <Section/>
-    <Footer/>
   </div>
 
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import Footer from '../../pages/Footer';
-import NewNav from '../../pages/NewNav';
 import CTASection from '../Home/CTASection';
 import MissionVision from './MissionVision';
 import DataProtectionSection from './DataProtectionSection';
@@ -9,7 +7,6 @@ import DataProtectionSection from './DataProtectionSection';
 function About() {
   return (
     <div>
-      <NewNav/>
       {/* Hero Section */}
       <section className="relative mt-4">
         <img
@@ -110,7 +107,7 @@ function About() {
       
 
       
-      <Footer/>
+
     </div>
   );
 }

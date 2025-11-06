@@ -101,7 +101,7 @@ function NewNav() {
                 Rates & Fees
               </Link>
               
-              <Link to='#'
+              <Link to='/contact'
                 className="text-gray-700 hover:text-emerald-600 font-medium transition-colors duration-200 py-2 border-b-2 border-transparent hover:border-emerald-600" 
               >
                 Contact

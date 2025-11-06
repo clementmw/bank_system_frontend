@@ -148,15 +148,15 @@ function DataProtectionSection() {
             </p>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-2">
               <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
                 <div className="text-2xl font-bold text-emerald-600 mb-1">24/7</div>
                 <div className="text-sm text-gray-600">Monitoring</div>
               </div>
-              <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
+              {/* <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
                 <div className="text-2xl font-bold text-emerald-600 mb-1">256-bit</div>
                 <div className="text-sm text-gray-600">Encryption</div>
-              </div>
+              </div> */}
               <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
                 <div className="text-2xl font-bold text-emerald-600 mb-1">100%</div>
                 <div className="text-sm text-gray-600">Compliance</div>
@@ -166,7 +166,7 @@ function DataProtectionSection() {
         </div>
 
         {/* Protection Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {protectionFeatures.map((feature, index) => {
             const colors = getColorClasses(feature.color);
             return (
@@ -185,7 +185,7 @@ function DataProtectionSection() {
               </div>
             );
           })}
-        </div>
+        </div> */}
 
         {/* Bottom CTA */}
         <div 

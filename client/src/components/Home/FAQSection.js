@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function FAQSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -133,9 +134,14 @@ function FAQSection() {
           style={{ transitionDelay: '300ms' }}
         >
           <p className="text-gray-600 mb-4">Still have questions?</p>
-          <button className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl">
+          
+          <Link className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
+            to = '/contact'
+            >
+
             Contact Support
-          </button>
+          
+          </Link>
         </div>
       </div>
     </section>
