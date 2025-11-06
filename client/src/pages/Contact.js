@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import NewNav from './NewNav';
 import Footer from './Footer';
-import toast,{Toaster} from 'react-hot-toast'
+// import toast,{Toaster} from 'react-hot-toast'
 
 function Contact() {
   const [full_name, setFullName] = useState('');
@@ -20,7 +20,7 @@ function Contact() {
       setMessage('')
       setError('')
 
-      toast.success('Message successfully sent')
+      setSuccess("Message successfully sent")
       }) 
       .catch((error)=>{
         const errorMsg = error.response?.data?.error || 'An error occurred';
@@ -175,7 +175,7 @@ function Contact() {
           />
         </div>
       </section>
-      <Toaster position='top-center' reverseOrder={false}/>
+      {/* <Toaster position='top-center' reverseOrder={false}/> */}
 
       <Footer />
     </div>

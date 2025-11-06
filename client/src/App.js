@@ -5,12 +5,12 @@ import Register from './components/Register';
 import { Routes, Route } from 'react-router-dom';
 import Testimonial from './pages/Testimonial';
 import Contact from './pages/Contact';
-import About from './pages/About';
+import About from './components/About/About';
 import User from './components/User';
 import Transaction from './components/Transaction';
 import TransactionForm from './components/TransactionForm';
 import Account from './components/Account';
-import Frequent from './pages/Frequent';
+// import Frequent from './pages/Frequent';
 import PageNotFound from './Reusable/PageNotFound';
 
 
@@ -33,7 +33,7 @@ function App() {
         <Route path='/transaction' element = {<Transaction/>}/>
         <Route path = '/transfer' element = {<TransactionForm/>}/>
         <Route path = '/newaccount' element = {<Account/>}/>
-        <Route path='/FrequentQA' element = {<Frequent/>}/>
+        {/* <Route path='/FrequentQA' element = {<Frequent/>}/> */}
 
         <Route path = '*' element = {<PageNotFound/>}/>
 

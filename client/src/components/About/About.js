@@ -1,6 +1,9 @@
 import React from 'react';
-import Footer from './Footer';
-import NewNav from './NewNav';
+import Footer from '../../pages/Footer';
+import NewNav from '../../pages/NewNav';
+import CTASection from '../Home/CTASection';
+import MissionVision from './MissionVision';
+import DataProtectionSection from './DataProtectionSection';
 // import backgroundImage from '../images/backgroundImage.jpg';
 
 function About() {
@@ -23,7 +26,7 @@ function About() {
         </div>
       </section>
   {/* Our History Section */}
-  <section className="bg-white py-16">
+  {/* <section className="bg-white py-16">
         <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-[#228B22] sm:text-4xl">Our History</h2>
           <p className="mt-4 text-gray-600">Evergreen Bank was founded in 2001 with the vision of creating a bank that prioritizes customer service and sustainable practices. Over the years, we have grown significantly, but our core values remain the same. We believe that a bank should be transparent, accessible, and dedicated to providing an exceptional customer experience.</p>
@@ -96,58 +99,14 @@ function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Our Mission Section */}
-      <section>
-        <div className="mx-auto  max-w-screen-2xl px-4 py-4 sm:px-6 sm:py-20 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-bold sm:text-4xl">
-              Data Protection
-            </h2>
-          </div>
+      <MissionVision/>
+      <DataProtectionSection/>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-            <div className="relative h-64 overflow-hidden sm:h-80 lg:h-full">
-              <img
-                alt=""
-                src='https://images.unsplash.com/photo-1609770231080-e321deccc34c?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
+      <CTASection/>
 
-            <div className="lg:py-6">
-            <h1 className='text-bold text-2xl text-black'>How do we protect your Data?</h1>
-            <ul className="mt-4 space-y-4 text-gray-600">
-            <li><strong>Encryption:</strong> All sensitive data is encrypted both in transit and at rest using industry-standard encryption protocols to prevent unauthorized access.</li>
-            <li><strong>Access Controls:</strong> We employ strict access controls to ensure that only authorized personnel have access to your information. Regular audits and monitoring help maintain this security.</li>
-            <li><strong>Compliance:</strong> Evergreen Bank complies with all relevant data protection regulations, including GDPR, CCPA, and other local privacy laws, to ensure your data is handled responsibly.</li>
-            <li><strong>Regular Security Assessments:</strong> We conduct regular security assessments and vulnerability testing to identify and address potential threats proactively.</li>
-            <li><strong>Customer Education:</strong> We believe in empowering our customers with knowledge about online security. Our resources and support team are always available to help you protect your information.</li>
-            <li><strong>Incident Response:</strong> In the unlikely event of a data breach, we have a robust incident response plan to quickly contain and mitigate any potential impact on our customers.</li>
-          </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="bg-[#0B3D0B] mb-4">
-        <div className="mx-auto max-w-screen-2xl px-4 py-32 lg:flex lg:h-40 lg:items-center">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mt-4 sm:text-xl/relaxed text-white">
-              Ready to get started?
-            </p>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
-                href="/register"
-              >
-                Get Started
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
       
 
       
