@@ -122,6 +122,7 @@ const AccountManagement = () => {
         // Clear success message after 5 seconds
         setTimeout(() => setSuccess(''), 5000);
       } else {
+        console.log(data.error)
         setError(data.error || 'Failed to create account');
       }
     } catch (error) {
@@ -201,6 +202,13 @@ const AccountManagement = () => {
         >
           <Plus size={20} />
           Open New Account
+        </button>
+        <button
+          onClick={() => fetchAccounts()}
+          className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+        >
+          <Plus size={20} />
+          Refresh
         </button>
       </div>
 

@@ -7,6 +7,8 @@ import KYCOnboarding from './KYCOnboarding';
 import Dashboard from './Dashboard';
 import Sidebar from './Sidebar';
 import AccountManagement from './AccountManagement';
+import KYCDocumentsView from './KYCDocumentsView';
+import TransactionsPage from './TransactionsPage';
 
 function UserLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -129,8 +131,10 @@ function UserLayout() {
         <main className="p-4 sm:p-6 lg:p-8">
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="kyc" element={<KYCDocumentsView />} />
             <Route path="kyc-onboarding" element={<KYCOnboarding />} />
             <Route path='accounts' element = {<AccountManagement/>}/>
+            <Route path='transactions' element = {<TransactionsPage/>}/>
           </Routes>
         </main>
       </div>

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { FaLock, FaUser, FaEye, FaEyeSlash, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
 import login from '../images/loginpg.jpg'
+import { handleLogin } from './Helper';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -18,15 +21,31 @@ function LoginPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try{
+      const response = await handleLogin(formData.email, formData.password);
+      if (response.status === 200){
+          localStorage.setItem('user', JSON.stringify({
+            user: response.data.user,
+            access: response.data.access,
+            refresh: response.data.refresh,
+            kyc_status: response.data.kyc_status
+          }))
+          if (response.data.kyc_status === "INCOMPLETE"){
+            navigate('/user-dashboard/kyc-onboarding')
+          }
+          else{
+            navigate('/user-dashboard/')
+          }
+      }
+    }catch(error){
+      console.error('Login failed:', error);
+    }finally{
       setIsLoading(false);
-      console.log('Login submitted:', formData);
-    }, 2000);
+    }
   };
 
   return (
@@ -92,7 +111,7 @@ function LoginPage() {
                 {/* Username Field */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Username or Account Number
+                    Email Address
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -100,11 +119,11 @@ function LoginPage() {
                     </div>
                     <input
                       type="text"
-                      name="username"
-                      value={formData.username}
+                      name="email"
+                      value={formData.email}
                       onChange={handleInputChange}
                       className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all duration-200"
-                      placeholder="Enter your username"
+                      placeholder="Enter your email address"
                     />
                   </div>
                 </div>

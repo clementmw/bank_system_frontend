@@ -1,19 +1,15 @@
-// handles all the communication to the backend for public pages
-// contact us signup login 
-
 import axios from 'axios';
-import React from 'react';
-// from .env
-const API_URL = React.env.REACT_APP_API_URL ;
-const API_KEY = React.env.REACT_APP_API_KEY ;
 
-export const handleContactPage = ()=>{
-    
+const ApiUrl = axios.create({
+    baseURL: 'http://localhost:8000/api/v1.0/',
+})
+
+
+export const handleSignup = async(email,password,phone_number,first_name,last_name,address)=>{
+    return ApiUrl.post('auth/register/',{email,password,phone_number,first_name,last_name,address})
 }
 
-export const handleLogin = ()=>{
 
-}
-
-export const handleSignup = ()=>{
+export  const handleLogin = async(email,password)=>{
+    return ApiUrl.post('auth/login/customer/',{email,password})
 }

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { FaEyeSlash, FaEye, FaShieldAlt, FaCheckCircle, FaUser, FaPhone, FaEnvelope, FaMapMarkerAlt, FaLock, FaArrowRight } from 'react-icons/fa';
-
+import { handleSignup } from './Helper';
+import { useNavigate } from 'react-router-dom';
 function SignupPage() {
   const [formData, setFormData] = useState({
-    username: '',
+    first_name: '',
+    last_name: '',
     phone: '',
     email: '',
     address: '',
     password: '',
     confirmPassword: ''
   });
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -34,7 +37,7 @@ function SignupPage() {
     return { strength: 100, label: 'Strong', color: 'bg-green-500' };
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     
     if (!termsAccepted) {
@@ -53,10 +56,27 @@ function SignupPage() {
     }
 
     setIsLoading(true);
-    setTimeout(() => {
+    try {
+      const response = handleSignup(
+        formData.email,
+        formData.password,
+        formData.phone,
+        formData.first_name,
+        formData.last_name,
+        formData.address
+      )
+      console.log(response.status)
+      if (response.status === 201){
+        navigate('/login')
+      }
+
+    }catch(error){
+      console.error('Signup failed:', error);
+    }
+    finally{
       setIsLoading(false);
-      console.log('Account created:', formData);
-    }, 2000);
+    }
+    
   };
 
   const passwordStrength = getPasswordStrength();
@@ -163,23 +183,42 @@ function SignupPage() {
 
               {/* Form */}
               <div className="space-y-4">
-                {/* Username */}
-                <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                    Username
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <FaUser className="text-gray-400" size={14} />
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      First Name
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      </div>
+                      <input
+                        type="text"
+                        name="first_name"
+                        value={formData.first_name}
+                        onChange={handleInputChange}
+                        maxLength={10}
+                        className="w-full pl-9 pr-3 py-2.5 text-sm border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all duration-200"
+                        placeholder="Yusufu"
+                      />
                     </div>
-                    <input
-                      type="text"
-                      name="username"
-                      value={formData.username}
-                      onChange={handleInputChange}
-                      className="w-full pl-10 pr-3 py-2.5 text-sm border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all duration-200"
-                      placeholder="Choose a username"
-                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Last Name
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      </div>
+                      <input
+                        type="text"
+                        name="last_name"
+                        value={formData.last_name}
+                        onChange={handleInputChange}
+                        className="w-full pl-9 pr-3 py-2.5 text-sm border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all duration-200"
+                        placeholder="Kamau"
+                      />
+                    </div>
                   </div>
                 </div>
 

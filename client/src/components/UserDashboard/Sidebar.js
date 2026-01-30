@@ -38,7 +38,7 @@ const refreshToken = tokenData ? JSON.parse(tokenData).refresh : null;
   ];
 
   const bottomMenuItems = [
-    { icon: User, label: 'KYC Profile', path: '/user-dashboard/kyc-onboarding' },
+    { icon: User, label: 'KYC Profile', path: '/user-dashboard/kyc' },
     { icon: Settings, label: 'Settings', path: '/user-dashboard/settings' },
   ];
 
@@ -48,18 +48,24 @@ const refreshToken = tokenData ? JSON.parse(tokenData).refresh : null;
       toggleSidebar();
     }
   };
-
-  const handleLogout = async() => {
+const handleLogout = async() => {
     try {
-      const response = await handleLogoutUser(refreshToken);
-      if (response.status === 200){
+        // Read refresh token fresh from localStorage
+        const tokenData = localStorage.getItem('user');
+        const refreshToken = tokenData ? JSON.parse(tokenData).refresh : null;
+        
+        const response = await handleLogoutUser(refreshToken);
+        if (response.status === 200){
+            localStorage.removeItem('user');
+            navigate('/login');
+        }
+    } catch (error) {
+        console.error('Logout failed:', error);
+        // Clear localStorage even if logout API fails
         localStorage.removeItem('user');
         navigate('/login');
-      }
-    } catch (error) {
-      console.error('Logout failed:', error);
     }
-  };
+};
 
   const isActive = (path) => {
     return location.pathname === path;
