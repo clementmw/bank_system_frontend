@@ -135,6 +135,8 @@ function UserLayout() {
             <Route path="kyc-onboarding" element={<KYCOnboarding />} />
             <Route path='accounts' element = {<AccountManagement/>}/>
             <Route path='transactions' element = {<TransactionsPage/>}/>
+            <Route path='*' element = {<Dashboard/>}/>
+            
           </Routes>
         </main>
       </div>
