@@ -16,6 +16,7 @@ import NewNav from './pages/NewNav';
 import Footer from './pages/Footer';
 import UserLayout from './components/UserDashboard/UserLayout';
 import { useState, useEffect } from 'react';
+import OrgLayout from './components/OrganisationDashboard/OrgLayout';
 
 function App() {
   const [authenticated, setisAuthenticated] = useState(false);
@@ -28,7 +29,7 @@ function App() {
   }, []);
 
   // Check if current route is a dashboard route
-  const isDashboardRoute = location.pathname.startsWith('/user-dashboard');
+  const isDashboardRoute = location.pathname.startsWith('/user-dashboard') || location.pathname.startsWith('/org-dashboard') 
 
   // Check if current route should show public nav and footer
   const showPublicLayout = !isDashboardRoute;
@@ -54,6 +55,7 @@ function App() {
 
         {/* Authenticated Routes - UserLayout handles its own navigation */}
         <Route path="/user-dashboard/*" element={<UserLayout />} />
+        <Route path="/org-dashboard/*" element={<OrgLayout />} />
 
         {/* 404 Page */}
         <Route path="*" element={<PageNotFound />} />
