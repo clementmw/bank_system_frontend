@@ -12,7 +12,8 @@ import {
   ChevronRight,
   DollarSign,
   TrendingUp,
-  Wallet
+  Wallet,
+  BellPlusIcon
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { handleLogoutUser } from './Helper';
@@ -35,6 +36,7 @@ const refreshToken = tokenData ? JSON.parse(tokenData).refresh : null;
     { icon: Wallet, label: 'Accounts', path: '/user-dashboard/accounts' },
     { icon: TrendingUp, label: 'Analytics', path: '/user-dashboard/analytics' },
     { icon: FileText, label: 'Statements', path: '/user-dashboard/statements' },
+    {icon: BellPlusIcon, label:'Ticket', path:'user-dashboard/tickets'}
   ];
 
   const bottomMenuItems = [
