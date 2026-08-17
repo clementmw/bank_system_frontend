@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Eclipse } from 'lucide-react';
 
 const ApiUrl = axios.create({
-    baseURL: 'http://localhost:8000/api/v1.0/',
+    baseURL: 'http://localhost:8001/api/v1.0/',
 })
 
 
@@ -27,8 +27,8 @@ export const handleLoginEmployee = async(email, password) => {
     return ApiUrl.post('auth/login/staff/', {email, password})
 }
 
-export const handleLogoutEmployee = async(refresh) => {
-    return ApiUrl.post('auth/logout/staff/', {refresh})
+export const handleLogoutEmployee = async(refresh,session_id) => {
+    return ApiUrl.post('auth/logout/staff/', {refresh,session_id})
 }
 
 export const handleCreateEmployee = async(form) => {
@@ -51,9 +51,7 @@ export const handleCreateEmployee = async(form) => {
         address: form.address,
         emergency_contact: form.emergency_contact,
         emergency_email:form.emergency_email,
-        emergency_contact:form.emergency_contact
-
-        
+        emergency_contact:form.emergency_contact       
 
 })
 }
@@ -62,4 +60,8 @@ export const handleCreateEmployee = async(form) => {
  export const handleGetEmployees = async(params) => {
      return ApiUrl.get(`auth/employee/creation/?${params}`)
  }
+
+ export const handleGetKyc = async() => {
+    return ApiUrl.get(`auth/employee/kyc/review/`)
+}
 

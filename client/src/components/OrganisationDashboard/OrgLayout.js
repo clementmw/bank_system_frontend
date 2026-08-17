@@ -5,7 +5,7 @@ import OrgSidebar from './OrgSidebar';
 import HrDepartment from './Hr/HrStaff';
 import FinanceDepartment from './Finance/FinanceDepartment';
 import HrNav from './Hr/HrNav';
-// import other departments as you add them...
+import RelationsNav from './Customer_relations/RelationsNav';
 
 function OrgLayout() {
   return (
@@ -18,6 +18,7 @@ function OrgLayout() {
         <Routes>
           <Route path="/hr/*"      element={<HrNav />} />
           <Route path="/finance/*" element={<FinanceDepartment />} />
+          <Route path='/customer-service/*' element={<RelationsNav/>}/>
         </Routes>
       </main>
     </div>

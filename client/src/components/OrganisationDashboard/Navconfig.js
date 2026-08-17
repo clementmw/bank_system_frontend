@@ -154,9 +154,10 @@ export const navConfig = {
     {
       section: 'Overview',
       items: [
-        { icon: 'grid',  label: 'Dashboard',           path: '/customer-service' },
-        { icon: 'trend', label: 'Satisfaction scores', path: '/customer-service/csat' },
-        { icon: 'msg',   label: 'Open tickets',        path: '/customer-service/tickets', badge: 34 },
+        { icon: 'grid',  label: 'Dashboard',           path: '/org-dashboard/customer-service' },
+        { icon: 'trend', label: 'Satisfaction scores', path: '/org-dashboard/customer-service/csat' },
+        { icon: 'msg',   label: 'Open tickets',        path: '/org-dashboard/customer-service/tickets', badge: 34 },
+        { icon: 'chart', label: 'Kyc Review',      path: '/org-dashboard/customer-service/kyc-review' },
       ],
     },
     {

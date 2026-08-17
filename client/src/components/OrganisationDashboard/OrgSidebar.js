@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { navConfig, deptKeyMap } from './Navconfig';
+import axios from 'axios';
+import { handleLogoutEmployee } from './OrgHelper';
 
 // ─── Icon map ────────────────────────────────────────────────────────────────
 const Icon = ({ name, size = 18 }) => {
@@ -119,14 +121,28 @@ function OrgSidebar({ onLogout }) {
   const user    = orgUser?.user ?? {};
   const role    = orgUser?.role ?? '';
 
+
   // Close mobile drawer on route change
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
 
-  const handleLogout = () => {
+const handleLogout = async () => {
+  try {
+    const orgUser = JSON.parse(localStorage.getItem('org_user') || '{}');
+
+    const refresh = orgUser?.refresh;
+    const session = orgUser?.session_id;
+
+    await handleLogoutEmployee(refresh, session);
+
     localStorage.removeItem('org_user');
+
     if (onLogout) onLogout();
     else navigate('/login');
-  };
+
+  } catch (error) {
+    console.error('Logout failed:', error);
+  }
+};
 
   return (
     <>

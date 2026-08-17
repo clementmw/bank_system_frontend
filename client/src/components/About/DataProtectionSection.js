@@ -65,17 +65,17 @@ function DataProtectionSection() {
     }
   ];
 
-  const getColorClasses = (color) => {
-    const colors = {
-      emerald: { bg: 'bg-emerald-100', text: 'text-emerald-600', border: 'border-emerald-200' },
-      blue: { bg: 'bg-blue-100', text: 'text-blue-600', border: 'border-blue-200' },
-      purple: { bg: 'bg-purple-100', text: 'text-purple-600', border: 'border-purple-200' },
-      indigo: { bg: 'bg-indigo-100', text: 'text-indigo-600', border: 'border-indigo-200' },
-      teal: { bg: 'bg-teal-100', text: 'text-teal-600', border: 'border-teal-200' },
-      orange: { bg: 'bg-orange-100', text: 'text-orange-600', border: 'border-orange-200' }
-    };
-    return colors[color];
-  };
+  // const getColorClasses = (color) => {
+  //   const colors = {
+  //     emerald: { bg: 'bg-emerald-100', text: 'text-emerald-600', border: 'border-emerald-200' },
+  //     blue: { bg: 'bg-blue-100', text: 'text-blue-600', border: 'border-blue-200' },
+  //     purple: { bg: 'bg-purple-100', text: 'text-purple-600', border: 'border-purple-200' },
+  //     indigo: { bg: 'bg-indigo-100', text: 'text-indigo-600', border: 'border-indigo-200' },
+  //     teal: { bg: 'bg-teal-100', text: 'text-teal-600', border: 'border-teal-200' },
+  //     orange: { bg: 'bg-orange-100', text: 'text-orange-600', border: 'border-orange-200' }
+  //   };
+  //   return colors[color];
+  // };
 
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-b from-slate-50 to-white">

@@ -62,6 +62,7 @@ function LoginPage() {
             refresh:    response.data.refresh,
             department: response.data.user.profile.department.name, // e.g. "finance", "hr"
             role:       response.data.user.role_name,        // e.g. "manager", "analyst"
+            session_id: response.data.session_id
           }));
 
           const dept = deptRouteMap[response.data.user.profile.department.name?.toLowerCase()]
